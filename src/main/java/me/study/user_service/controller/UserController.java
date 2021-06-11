@@ -1,6 +1,6 @@
 package me.study.user_service.controller;
 
-import me.study.user_service.controller.dto.request.NewUserRequest;
+import me.study.user_service.dto.request.NewUserRequest;
 import me.study.user_service.model.User;
 import me.study.user_service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
