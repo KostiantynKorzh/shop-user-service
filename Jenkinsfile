@@ -11,7 +11,6 @@ pipeline {
                 git branch: "main", url: 'https://github.com/KostiantynKorzh/shop-user-service.git'
             }
         }
-
         stage('Build') {
             steps {
                 script {
