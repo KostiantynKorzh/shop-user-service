@@ -1,3 +1,5 @@
+#!groovy
+
 pipeline {
     agent any
     environment {
@@ -9,16 +11,24 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
+                    dockerImage = docker.build registry + ":latest"
                 }
             }
         }
-        stage('Deploy') {
+        stage('Push to dockerhub') {
             steps {
                 script {
                     docker.withRegistry('', registryCredential) {
                         dockerImage.push()
                     }
+                }
+            }
+        }
+        stage("Deploy to k8s") {
+            steps {
+                script {
+                    echo dockerImage
+                    kubectl set image deployment/jenkins dockerImage --record
                 }
             }
         }
