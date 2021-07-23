@@ -6,11 +6,6 @@ pipeline {
         dockerImage = ''
     }
     stages {
-        stage('Pulling git repo') {
-            steps {
-                git branch: "main", url: 'https://github.com/KostiantynKorzh/shop-user-service.git'
-            }
-        }
         stage('Build') {
             steps {
                 script {
