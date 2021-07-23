@@ -27,8 +27,13 @@ public class UserController {
     }
 
     @PostMapping
-    public User createNewUser(@RequestBody NewUserRequest user){
+    public User createNewUser(@RequestBody NewUserRequest user) {
         return userService.createNewUser(user.username(), user.email());
+    }
+
+    @GetMapping("/test")
+    public String test() {
+        return "Just testing...";
     }
 
 }
