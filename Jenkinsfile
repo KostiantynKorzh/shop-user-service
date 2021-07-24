@@ -11,7 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    dockerImage = docker.build registry + ":latest"
+                    dockerImage = docker.build registry
                 }
             }
         }
@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('', registryCredential) {
-                        dockerImage.push()
+                        dockerImage.push("latest")
                     }
                 }
             }
@@ -27,8 +27,7 @@ pipeline {
         stage("Deploy to k8s") {
             steps {
                 script {
-                    echo dockerImage
-                    kubectl set image deployment/jenkins dockerImage --record
+                    kubectl rollout restart deployment/user-service-deployment
                 }
             }
         }
