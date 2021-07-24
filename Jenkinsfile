@@ -26,9 +26,7 @@ pipeline {
         }
         stage("Deploy to k8s") {
             steps {
-                script {
-                    kubectl rollout restart deployment/user-service-deployment
-                }
+                sh 'sudo kubectl rollout restart deployment/user-deployment'
             }
         }
     }

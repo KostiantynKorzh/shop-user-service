@@ -31,9 +31,4 @@ public class UserController {
         return userService.createNewUser(user.username(), user.email());
     }
 
-    @GetMapping("/test")
-    public String test() {
-        return "Just testing...";
-    }
-
 }
