@@ -100,8 +100,8 @@
                             <version>${org.mapstruct.version}</version>
                         </path>
                     </annotationProcessorPaths>
-<!--                    <compilerArgs>&#45;&#45;enable-preview-->
-<!--                    </compilerArgs>-->
+                    <compilerArgs>--enable-preview
+                    </compilerArgs>
                 </configuration>
             </plugin>
         </plugins>
