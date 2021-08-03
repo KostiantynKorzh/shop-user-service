@@ -3,7 +3,7 @@
 pipeline {
     agent any
     environment {
-        registry = "kostiakorzh/demoshop-user-service"
+        registry = "kostiakorzh/demoshop-user-service-dev"
         registryCredential = 'dockerhub'
         dockerImage = ''
     }
