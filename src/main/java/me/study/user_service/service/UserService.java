@@ -29,4 +29,8 @@ public class UserService {
                 new RuntimeException("No such user"));
     }
 
+    public Long getUserIdByUsername(String username){
+        return userRepository.findByUsername(username).getId();
+    }
+
 }

@@ -1,5 +1,6 @@
 package me.study.user_service.controller;
 
+import me.study.user_service.dto.request.GetIdByUsernameRequest;
 import me.study.user_service.dto.request.NewUserRequest;
 import me.study.user_service.model.User;
 import me.study.user_service.service.UserService;
@@ -31,9 +32,9 @@ public class UserController {
         return userService.createNewUser(user.username(), user.email());
     }
 
-    @GetMapping("/test")
-    public String test() {
-        return "Just testing...";
+    @PostMapping("/userId")
+    public Long getUserIdByUsername(@RequestBody GetIdByUsernameRequest request) {
+        return userService.getUserIdByUsername(request.getUsername());
     }
 
 }
