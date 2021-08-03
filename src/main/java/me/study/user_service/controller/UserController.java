@@ -37,4 +37,9 @@ public class UserController {
         return userService.getUserIdByUsername(request.getUsername());
     }
 
+    @GetMapping("/test")
+    public String test() {
+        return "Just testing...";
+    }
+
 }
