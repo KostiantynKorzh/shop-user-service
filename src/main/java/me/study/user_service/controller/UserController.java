@@ -26,19 +26,4 @@ public class UserController {
         return userService.getUser(id);
     }
 
-    @PostMapping
-    public User createNewUser(@RequestBody NewUserRequest user) {
-        return userService.createNewUser(user.username(), user.email());
-    }
-
-    @PutMapping
-    public User enableUser(@RequestParam String username) {
-        return userService.enableUser(username);
-    }
-
-    @DeleteMapping
-    public User disableUser(@RequestParam String username) {
-        return userService.disableUser(username);
-    }
-
 }
