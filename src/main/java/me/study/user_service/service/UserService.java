@@ -13,13 +13,6 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public User createNewUser(String username, String email) {
-        return userRepository.save(User.builder()
-                .username(username)
-                .email(email)
-                .build());
-    }
-
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
@@ -32,20 +25,6 @@ public class UserService {
     public User getUserByUsername(String username) {
         return userRepository.findByUsername(username).orElseThrow(() ->
                 new RuntimeException("No such user: " + username));
-    }
-
-    public User disableUser(String username) {
-        User user = getUserByUsername(username);
-        user.setEnabled(false);
-        userRepository.save(user);
-        return user;
-    }
-
-    public User enableUser(String username) {
-        User user = getUserByUsername(username);
-        user.setEnabled(true);
-        userRepository.save(user);
-        return user;
     }
 
 }
